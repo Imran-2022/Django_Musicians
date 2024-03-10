@@ -21,7 +21,7 @@
             {% for post in data %}
                 <tr>
                     <td>{{post.id}}</td>
-                    <td>{{post.musician.first_name }} {{post.musician.last_name}}</td>
+                    <td><a href="{% url 'edit_musician' post.musician.id %}">{{post.musician.first_name }} {{post.musician.last_name}}</a></td>
                     <td>{{post.rating}}</td>
                     <td>{{post.musician.instrument_type}}</td>
                     <td>{{post.name}}</td>
