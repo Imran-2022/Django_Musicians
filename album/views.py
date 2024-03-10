@@ -17,3 +17,15 @@ def delete_album(request,id):
     post = Album.objects.get(pk=id)
     post.delete()
     return redirect('homepage') 
+
+
+def edit_album(request,id):
+    post = Album.objects.get(pk=id)
+    post_form=forms.AlbumForm(instance=post) 
+
+    if request.method=='POST': 
+        post_form=forms.AlbumForm(request.POST,instance=post) 
+        if post_form.is_valid(): 
+            post_form.save()
+            return redirect('homepage') 
+    return render(request, 'album.html',{'form':post_form})
