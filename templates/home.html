@@ -27,7 +27,7 @@
                     <td>{{post.name}}</td>
                     <td>{{post.release_date}}</td>
                     <td class="text-danger">
-                        <span>Edit</span> | <span>Delete</span>
+                        <a href=""><span>Edit</span></a> | <a  href="{% url 'delete_album' post.id %}"><span>Delete</span></a>
                     </td>
                 </tr>
             {% endfor %}

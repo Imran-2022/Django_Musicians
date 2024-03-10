@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from . import forms
+from album.models import Album
 # Create your views here.
 
 def add_album(request):
@@ -11,3 +12,8 @@ def add_album(request):
     else: 
         album_form=forms.AlbumForm()
     return render(request, 'album.html',{'form':album_form})
+
+def delete_album(request,id):
+    post = Album.objects.get(pk=id)
+    post.delete()
+    return redirect('homepage') 
