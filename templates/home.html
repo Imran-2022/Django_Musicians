@@ -2,8 +2,39 @@
 
 {% block content %}
 
-<div class="container">
-    <h1>This is Home Page !!!</h1>
+<div class="container py-5">
+    {% comment %} {{data}} {% endcomment %}
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Musician Name</th>
+                <th scope="col">Album Rating</th>
+                <th scope="col">Instrument Type</th>
+                <th scope="col">Album Name</th>
+                <th scope="col">Release Date</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in data %}
+                <tr>
+                    <td>{{post.id}}</td>
+                    <td>{{post.musician.first_name }} {{post.musician.last_name}}</td>
+                    <td>{{post.rating}}</td>
+                    <td>{{post.musician.instrument_type}}</td>
+                    <td>{{post.name}}</td>
+                    <td>{{post.release_date}}</td>
+                    <td class="text-danger">
+                        <span>Edit</span> | <span>Delete</span>
+                    </td>
+                </tr>
+            {% endfor %}
+            
+        </tbody>
+        </table>
+        
 </div>
 
 {% endblock %}
